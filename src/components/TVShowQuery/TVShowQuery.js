@@ -13,15 +13,10 @@ function TVShowQuery() {
             .then(response => response.json())
             .then(data => {
                 storeSortData.push(data.sort((a, b) => {
-                    let fa = a.show.name.toLowerCase(),
-                        fb = b.show.name.toLowerCase();
-                    if (fa < fb) {
+                    if (a < b) {
                         return -1;
                     }
-                    if (fa > fb) {
-                        return 1;
-                    }
-                    return 0;
+                    return 1;
                 }
                 ))
                 console.log(data)
