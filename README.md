@@ -20,4 +20,4 @@ Thank you Bounteous for your consideration.
 # More Information
 Contact me at hatamara09@gmail.com
 
-
+![Image of deployed application- loaded screen](./screenshot.PNG)
