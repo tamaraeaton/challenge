@@ -2,17 +2,4 @@
     margin: 1rem;
 }
 
-.tvShowTable {
-    background-color: lightslategray;
-    margin-left: 35%;
-    width: 30%;
-}
 
-.tableHeader {
-    background-color: darkslategray;
-}
-
-.tableData {
-    border: 1px solid #ddd;
-    padding: 8px;
-}

@@ -34,6 +34,7 @@ function TVShowQuery() {
                 // console.log(data.show.name)
                 // console.log(data?.show?.image?.medium)
                 // console.log(storeSortData.show.image?.medium)
+                console.log(data)
                 setTvShowList(data)
                 setShowImage(data)
                 setSubString('')
@@ -48,20 +49,21 @@ function TVShowQuery() {
                 <input onChange={(event) => setSubString(event.target.value)} value={subString} placeholder="Search Name"></input>
                 <button onClick={() => getTVShowNames()}>Search</button>
             </div>
-            {
-                tvShowList.map((item) => {
-                    console.log('here', item.show.image?.medium)
-                    return (
-                    <h3>{item.show.name}</h3>
-                    {item.show.image?.medium && 
-                        <img src={item.show.image?.medium} />
-
-                    }
-                    // <img src={item.show.image?.medium} />
+        {tvShowList.map((item)=> {
+            return (
+                <div key={item.show.id}>
+                    <h3 >{item.show.name}</h3>
                     
-                    )
-                })
-            }
+                    {item.show.image?.medium &&
+                    <img src={item.show.image?.medium}></img>
+                    }
+                    <hr/>
+                </div>
+
+            )
+        })
+
+        }
 
 
 
