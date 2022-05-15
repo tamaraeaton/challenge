@@ -22,4 +22,4 @@ Thank you Bounteous for your consideration.
 # More Information
 Contact me at hatamara09@gmail.com
 
-![This is an image](/assets/images/screenshot.png)
+![Image of deployed application- loaded screen](./assets/screenshot.png)
