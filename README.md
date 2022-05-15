@@ -13,8 +13,6 @@ HTML
 CSS
 Javascript
 Fetch API
-License?
-MIT?
 
 # Shoutouts
 Thank you Bounteous for your consideration.

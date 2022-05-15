@@ -2,35 +2,43 @@ import React, { useState } from 'react';
 import './TVShowQuery.css';
 
 function TVShowQuery() {
-    const [subString, setSubString] = useState('');
+    const [substr, setSubstr] = useState('');
     const [tvShowList, setTvShowList] = useState([]);
-
-    const storeSortData = [];
 
     const getTVShowNames = () => {
 
-        fetch('http://api.tvmaze.com/search/shows?q=' + subString)
+        fetch('http://api.tvmaze.com/search/shows?q=' + substr)
             .then(response => response.json())
             .then(data => {
-                storeSortData.push(data.sort((a, b) => {
-                    if (a < b) {
+                data.sort((a, b) => {
+                    if (a.show.name < b.show.name) {
                         return -1;
                     }
-                    return 1;
-                }
-                ))
-                console.log(data)
-                setTvShowList(data)
-                setSubString('')
+                    if (a.show.name > b.show.name) {
+                        return 1;
+                    }
+                    return 0;
+                });
+                printTVShowNames(data);
+                setTvShowList(data);
+                setSubstr('');
             })
-            .catch(err => console.error(err));
-    }
+            .catch(() => {
+                alert('There was an error retrieving search results.')
+            });
+    };
 
+    const printTVShowNames = (tvData) => {
+        for(let i = 0; i < tvData.length; i++) {
+            console.log(tvData[i].show.name)
+        }
+    };
 
     return (
         <div>
             <div className="searchBox">
-                <input onChange={(event) => setSubString(event.target.value)} value={subString} placeholder="Search Name"></input>
+                <h1>Input the name of the show you want to search:</h1>
+                <input onChange={(event) => setSubstr(event.target.value)} placeholder="Search Name" value={substr}></input>
                 <button onClick={() => getTVShowNames()}>Search</button>
             </div>
             {
@@ -49,4 +57,4 @@ function TVShowQuery() {
     )
 }
 
-export default TVShowQuery
+export default TVShowQuery;
