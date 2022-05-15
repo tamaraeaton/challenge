@@ -33,7 +33,7 @@ function TVShowQuery() {
                 // set the list and clear out the search name
                 // console.log(data.show.name)
                 // console.log(data?.show?.image?.medium)
-                console.log(storeSortData)
+                // console.log(storeSortData.show.image?.medium)
                 setTvShowList(data)
                 setShowImage(data)
                 setSubString('')
@@ -48,8 +48,24 @@ function TVShowQuery() {
                 <input onChange={(event) => setSubString(event.target.value)} value={subString} placeholder="Search Name"></input>
                 <button onClick={() => getTVShowNames()}>Search</button>
             </div>
+            {
+                tvShowList.map((item) => {
+                    console.log('here', item.show.image?.medium)
+                    return (
+                    <h3>{item.show.name}</h3>
+                    {item.show.image?.medium && 
+                        <img src={item.show.image?.medium} />
 
-            <table className="tvShowTable">
+                    }
+                    // <img src={item.show.image?.medium} />
+                    
+                    )
+                })
+            }
+
+
+
+            {/* <table className="tvShowTable">
                 <thead>
                     <tr className='tableHeader'>
                         <th>TV Show Name</th>
@@ -58,18 +74,19 @@ function TVShowQuery() {
                 </thead>
                 <tbody>
                     {tvShowList.map((search) => {
-                        // console.log(search.show.image?.medium)
                         return (
 
                             <tr key={search.show.id}>
                                 <td className='tableData'>{search.show.name}</td>
-                                <td className='tableData'>{search.show.image?.medium}</td>
+                                {search.show.image?.medium &&
+                                <td className='tableData'><img src={search.show.image?.medium} /></td>
+                                }
                             </tr>
                         )
                     })
                     }
                 </tbody>
-            </table>
+            </table> */}
 
         </div>
     )
