@@ -9,10 +9,10 @@ This is a frontend assessment created by Tamara Eaton as part of the Bounteous R
     - Print to the console the sorted TV show names.
 
 # Technologies
-HTML
-CSS
-Javascript
-Fetch API
+- HTML
+- CSS
+- Javascript
+- Fetch API
 
 # Shoutouts
 Thank you Bounteous for your consideration.
