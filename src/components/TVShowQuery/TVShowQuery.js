@@ -28,6 +28,14 @@ function TVShowQuery() {
             });
     };
 
+    // const getTVShowNames1 = () => {
+    //     fetch('http://localhost4000/notes')
+    //         .then(response => response.json())
+    //         .then(data => console.log(data))
+    //         .catch(console.log('error'))
+
+    // }
+
     const printTVShowNames = (tvData) => {
         for (let i = 0; i < tvData.length; i++) {
             console.log(tvData[i].show.name)
@@ -39,11 +47,11 @@ function TVShowQuery() {
             <div className="header">
                 <h3>Input the name of the show you want to search:</h3>
                 <div className="searchFunction">
-                <input onChange={(event) => setSubstr(event.target.value)} placeholder="Search Name" value={substr}></input>
-                <button onClick={() => getTVShowNames()}>Search</button>
+                    <input onChange={(event) => setSubstr(event.target.value)} placeholder="Search Name" value={substr}></input>
+                    <button onClick={() => getTVShowNames()}>Search</button>
                 </div>
             </div>
-                {
+            {
                 tvShowList.map((item) => {
                     return (
                         item.show.image?.medium &&
